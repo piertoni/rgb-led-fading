@@ -9,6 +9,8 @@ class RGB
 
     public:
         RGB(int redPin,int grPin,int bluPin, int delay_time, int stop_time);
+        /* pin of r,g,b leds, delay time every cycle (ms), stop time every changed
+          color(ms)*/
         void update(void);
         void nextColor(int r, int g, int b);
         void nextColor(void);
@@ -55,6 +57,7 @@ class RGB
         };
          void RGB::nextColor(int r, int g, int b)
         {
+            /* fade from current color to (r,g,b) indicated color*/
             step=0;
             start_Val[0]=ob_Val[0];
             start_Val[1]=ob_Val[1];
@@ -64,20 +67,10 @@ class RGB
             ob_Val[2]=b;
 
         };
-/*
+
        void RGB::nextColor(void)
         {
-            step=0;
-            start_Val[0]=ob_Val[0];
-            start_Val[1]=ob_Val[1];
-            start_Val[2]=ob_Val[2];
-            ob_Val[0]=random(256);
-            ob_Val[1]=random(256);
-            ob_Val[2]=random(256);            
-        };
-*/
-       void RGB::nextColor(void)
-        {
+            /* fade from current color to some predefined random colors*/
             step=0;
             start_Val[0]=ob_Val[0];
             start_Val[1]=ob_Val[1];
